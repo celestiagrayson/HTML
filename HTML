@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Список задач</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+    }
+
+    .container {
+      max-width: 400px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+
+    h1 {
+      text-align: center;
+    }
+
+    input[type="text"] {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 10px;
+    }
+
+    ul {
+      list-style-type: none;
+      padding: 0;
+    }
+
+    li {
+      margin-bottom: 5px;
+    }
+
+    button {
+      padding: 10px 20px;
+      background-color: #4CAF50;
+      color: #fff;
+      border: none;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #45a049;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Список задач</h1>
+    <input type="text" id="taskInput" placeholder="Введите задачу">
+    <button id="addButton">Добавить</button>
+    <ul id="taskList"></ul>
+  </div>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      var taskInput = document.getElementById("taskInput");
+      var addButton = document.getElementById("addButton");
+      var taskList = document.getElementById("taskList");
+
+      addButton.addEventListener("click", function() {
+        var taskText = taskInput.value.trim();
+
+        if (taskText !== "") {
+          var taskItem = document.createElement("li");
+          taskItem.textContent = taskText;
+
+          taskList.appendChild(taskItem);
+          taskInput.value = "";
+        }
+      });
+    });
+  </script>
+</body>
+</html>
